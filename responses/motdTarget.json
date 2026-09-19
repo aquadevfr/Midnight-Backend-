@@ -10,7 +10,7 @@
         "contentFields": {
           "body": {
             "ar": "تم الإنشاء بواسطة بورلون، هذا هو خلفية معدلة، جميع حقوق الخلفية الأصلية تذهب إلى لاوين",
-            "en": "Created by Burlone, This is a modded backend, all main backend credits to lawin",
+            "en": "Created by burlon , modified by 19.10 and aqua",
             "de": "Erstellt von Burlone, dies ist ein modifiziertes Backend, alle Hauptcredits für das Backend gehen an Lawin",
             "es": "Creado por Burlone, este es un backend modificado, todos los créditos del backend principal van para Lawin",
             "es-419": "Creado por Burlone, este es un backend modificado, todos los créditos del backend principal van para Lawin",
@@ -28,7 +28,7 @@
             {
               "width": 1920,
               "height": 1080,
-              "url": "https://i.imgur.com/ImIwpRm.png"
+              "url": "https://i.imgur.com/CQYdvzN.png"
             }
           ],
           "tabTitleOverride": "Reload Backend",
@@ -36,15 +36,15 @@
             {
               "width": 1024,
               "height": 512,
-              "url": "https://i.imgur.com/KaJkHgq.png"
+              "url": "https://i.imgur.com/CQYdvzN.png"
             }
           ],
           "title": {
-            "ar": "مرحبًا بك في Reload!",
-            "en": "Welcome to Reload!",
-            "de": "Willkommen bei Reload!",
-            "es": "¡Bienvenidos a Reload!",
-            "es-419": "¡Bienvenidos a Reload!",
+            "ar": "Midnight Backend",
+            "en": "Midnight Backend",
+            "de": "Midnight Backend",
+            "es": "Midnight Backend",
+            "es-419": "Midnight Backend",
             "fr": "Bienvenue sur Reload !",
             "it": "Benvenuto in Reload!",
             "ja": "Reloadへようこそ！",
@@ -58,8 +58,8 @@
           "videoLoop": false,
           "videoMute": false,
           "videoStreamingEnabled": false,
-          "websiteButtonText": "OGFN Center Discord",
-          "websiteURL": "https://discord.gg/ogfncenter"
+          "websiteButtonText": "Aqua Discord",
+          "websiteURL": "https://discord.gg/xRy5bsT4U"
         },
         "contentHash": "reloadbackendcontenthashtylawin",
         "contentSchemaName": "MotdWebsiteNewsWithVideo"

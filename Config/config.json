@@ -1,11 +1,10 @@
 {
-    "moderators": [
-        ""
+    "moderators": ["" 
     ],
     "maintenanceMode": false,
     "discord": {
         "bUseDiscordBot": true,
-        "bot_token": "PUT_TOKEN_HERE",
+        "bot_token": "your-bot-token-here",
         "bEnableInGamePlayerCount": true
     },
     "mongodb": {

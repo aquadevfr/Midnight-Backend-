@@ -10,7 +10,7 @@ let header;
 function init() {
     screen = blessed.screen({
         smartCSR: true,
-        title: 'Better Reload - Dashboard',
+        title: 'Midnight Backend - Dashboard',
         fullUnicode: true,
         mouse: true
     });
@@ -19,7 +19,7 @@ function init() {
 
     
     header = grid.set(0, 0, 2, 12, blessed.box, {
-        content: `\n {bold}{blue-fg}BETTER RELOAD{/blue-fg}{/bold}\n Made by Benzi`,
+        content: `\n {bold}{blue-fg}MIDNIGHT BACKEND{/blue-fg}{/bold}\n Made by 19.10 and Aqua`,
         tags: true,
         border: { type: 'line' },
         style: { border: { fg: 'blue' } }

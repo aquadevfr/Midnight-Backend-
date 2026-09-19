@@ -10,7 +10,7 @@
       "message": {
         "_type": "CommonUI Simple Message Base",
         "title": "Better Reload",
-        "body": "This is a better version of the Better Reload made by Benzi, all main backend credits go to Burlone."
+        "body": "Made by Burlon , Modified by 19.10 and Aqua"
       }
     },
     "_activeDate": "2017-07-19T13:14:04.490Z",
@@ -222,8 +222,8 @@
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "adspace": "ENJOY!",
-          "title": "Better Reload",
-          "body": "This is a better version of the Better Reload made by Benzi, all main backend credits go to Burlone.",
+          "title": "Midnight Backend",
+          "body": "Made by Burlon , Modified by 19.10 and Aqua",
           "spotlight": false
         }
       ]
@@ -1256,8 +1256,8 @@
         {
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
-          "title": "Better Reload",
-          "body": "This is a better version of the Better Reload made by Benzi, all main backend credits go to Burlone.",
+          "title": "Midnight Backend",
+          "body": "Made by Burlon , Modified by 19.10 and Aqua",
           "spotlight": true
         }
       ]
@@ -1281,8 +1281,8 @@
           "gamemodes": [],
           "hidden": false,
           "_type": "CommonUI Emergency Notice Base",
-          "title": "Better Reload",
-          "body": "This is a better version of the Better Reload made by Benzi, all main backend credits go to Burlone."
+          "title": "Midnight Backend",
+          "body": "Made by Burlon , Modified by 19.10 and Aqua"
         }
       ]
     },
@@ -6286,8 +6286,8 @@
           "hidden": false,
           "tabTitleOverride": "Better Reload",
           "_type": "CommonUI Simple Message MOTD",
-          "title": "Welcome to Reload!",
-          "body": "This is a better version of the Better Reload made by Benzi, all main backend credits go to Burlone.",
+          "title": "Midnight Backend!",
+          "body": "Made by Burlon , Modified by 19.10 and Aqua",
           "offerAction": "ShowOfferDetails",
           "videoLoop": false,
           "videoStreamingEnabled": false,
@@ -6322,8 +6322,8 @@
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "adspace": "Better Reload",
-          "title": "Better Reload",
-          "body": "This is a better version of the Better Reload made by Benzi, all main backend credits go to Burlone.",
+          "title": "Midnight Backend  ",
+          "body": "Made by Burlon , Modified by 19.10 and Aqua",
           "spotlight": false
         }
       ]
@@ -6407,8 +6407,8 @@
           "hidden": false,
           "_type": "CommonUI Simple Message Base",
           "adspace": "ENJOY!",
-          "title": "Better Reload",
-          "body": "This is a better version of the Better Reload made by Benzi, all main backend credits go to Burlone.",
+          "title": "Midnight Backend",
+          "body": "Made by Burlon , Modified by 19.10 and Aqua",
           "spotlight": false
         }
       ]
