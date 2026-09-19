@@ -19,36 +19,36 @@ function formatLog(prefixColor, prefix, ...args) {
 function backend(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[32m", "Reload Backend Log", ...args);
+        formatLog("\x1b[35m", "Midnight Backend Log", ...args);
     } else {
-        tui.addLog(`\x1b[32mReload Backend Log\x1b[0m: ${msg}`);
+        tui.addLog(`\x1b[35mMidnight Backend Log\x1b[0m: ${msg}`);
     }
 }
 
 function bot(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[33m", "Reload Bot Log", ...args);
+        formatLog("\x1b[36m", "Midnight Bot Log", ...args);
     } else {
-        tui.addLog(`\x1b[33mReload Bot Log\x1b[0m: ${msg}`);
+        tui.addLog(`\x1b[36mMidnight Bot Log\x1b[0m: ${msg}`);
     }
 }
 
 function xmpp(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[34m", "Reload Xmpp Log", ...args);
+        formatLog("\x1b[34m", "Midnight Xmpp Log", ...args);
     } else {
-        tui.addLog(`\x1b[34mReload Xmpp Log\x1b[0m: ${msg}`);
+        tui.addLog(`\x1b[34mMidnight Xmpp Log\x1b[0m: ${msg}`);
     }
 }
 
 function error(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[31m", "Reload Error Log", ...args);
+        formatLog("\x1b[31m", "Midnight Error Log", ...args);
     } else {
-        tui.addLog(`\x1b[31mReload Error Log\x1b[0m: ${msg}`);
+        tui.addLog(`\x1b[31mMidnight Error Log\x1b[0m: ${msg}`);
     }
 }
 
@@ -56,9 +56,9 @@ function debug(...args) {
     if (config.bEnableDebugLogs) {
         let msg = args.join(" ");
         if (config.bEnableFormattedLogs) {
-            formatLog("\x1b[35m", "Reload Debug Log", ...args);
+            formatLog("\x1b[33m", "Midnight Debug Log", ...args);
         } else {
-            tui.addLog(`\x1b[35mReload Debug Log\x1b[0m: ${msg}`);
+            tui.addLog(`\x1b[33mMidnight Debug Log\x1b[0m: ${msg}`);
         }
     }
 }
@@ -66,9 +66,9 @@ function debug(...args) {
 function website(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[36m", "Reload Website Log", ...args);
+        formatLog("\x1b[32m", "Midnight Website Log", ...args);
     } else {
-        tui.addLog(`\x1b[36mReload Website Log\x1b[0m: ${msg}`);
+        tui.addLog(`\x1b[32mMidnight Website Log\x1b[0m: ${msg}`);
     }
 }
 
@@ -76,9 +76,9 @@ function AutoRotation(...args) {
     if (config.bEnableAutoRotateDebugLogs) {
         let msg = args.join(" ");
         if (config.bEnableFormattedLogs) {
-            formatLog("\x1b[36m", "Reload AutoRotation Debug Log", ...args);
+            formatLog("\x1b[96m", "Midnight AutoRotation Debug Log", ...args);
         } else {
-            tui.addLog(`\x1b[36mReload AutoRotation Debug Log\x1b[0m: ${msg}`);
+            tui.addLog(`\x1b[96mMidnight AutoRotation Debug Log\x1b[0m: ${msg}`);
         }
     }
 }
@@ -86,18 +86,18 @@ function AutoRotation(...args) {
 function checkforupdate(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[33m", "Reload Update Log", ...args);
+        formatLog("\x1b[95m", "Midnight Update Log", ...args);
     } else {
-        tui.addLog(`\x1b[33mReload Update Log\x1b[0m: ${msg}`);
+        tui.addLog(`\x1b[95mMidnight Update Log\x1b[0m: ${msg}`);
     }
 }
 
 function autobackendrestart(...args) {
     let msg = args.join(" ");
     if (config.bEnableFormattedLogs) {
-        formatLog("\x1b[92m", "Reload Auto Backend Restart Log", ...args);
+        formatLog("\x1b[92m", "Midnight Auto Restart Log", ...args);
     } else {
-        tui.addLog(`\x1b[92mReload Auto Backend Restart\x1b[0m: ${msg}`);
+        tui.addLog(`\x1b[92mMidnight Auto Restart\x1b[0m: ${msg}`);
     }
 }
 

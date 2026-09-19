@@ -1,11 +1,11 @@
 @echo off
-title Better Reload
+title Midnight Backend
 
 if not exist "node_modules\" (
     echo node_modules not found. Installing dependencies...
     npm install
     if %errorlevel% neq 0 (
-        echo Failed to install dependencies. Please check your internet connection or npm installation.
+        echo use npm i.
         pause
         exit
     )
@@ -18,5 +18,5 @@ if %errorlevel% equ 1 (
     pause
     exit
 )
-echo Restarting backend...
+echo Restarting Midnight
 goto start

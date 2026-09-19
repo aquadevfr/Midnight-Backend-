@@ -5,13 +5,47 @@
     "discord": {
         "bUseDiscordBot": true,
         "bot_token": "your-bot-token-here",
-        "bEnableInGamePlayerCount": true
+        "bEnableInGamePlayerCount": true,
+        "bEnableServerStatus": true,
+        "bServerStatusChannelId": "",
+        "bEnableCommandLogs": false,
+        "bCommandLogsChannelId": "",
+        "bEnableModActions": true,
+        "bModActionsChannelId": ""
     },
     "mongodb": {
-        "database": "mongodb://127.0.0.1/MidnightServer"
+        "database": "mongodb://127.0.0.1/MidnightServer",
+        "options": {
+            "useNewUrlParser": true,
+            "useUnifiedTopology": true,
+            "maxPoolSize": 10,
+            "minPoolSize": 2
+        }
     },
     "chat": {
-        "EnableGlobalChat": false
+        "EnableGlobalChat": false,
+        "bEnableChatFilter": true,
+        "bMaxMessageLength": 256,
+        "bRateLimitMessages": true,
+        "bMessagesPerMinute": 10,
+        "bEnableEmojis": true,
+        "bEnableMentions": true,
+        "bLogChatToFile": false,
+        "bChatLogPath": "./logs/chat.log"
+    },
+    "security": {
+        "bEnableRateLimiting": true,
+        "bRateLimitWindowMs": 30000,
+        "bRateLimitMaxRequests": 55,
+        "bEnableIPWhitelist": false,
+        "bWhitelistedIPs": [],
+        "bEnableIPBlacklist": false,
+        "bBlockedIPs": [],
+        "bEnableTokenEncryption": true,
+        "bMaxLoginAttempts": 5,
+        "bLoginCooldownMinutes": 15,
+        "bEnableTwoFactorAuth": false,
+        "bSessionTimeout": 86400000
     },
     "bEnableDebugLogs": true,
     "bEnableDebugLogsToFile": false,
@@ -21,9 +55,13 @@
     "port": 3551,
     "Api": {
         "bApiKey": "ur-api-key",
+        "bEnableApiAuth": false,
+        "bApiRateLimit": 100,
         "reasons": {
             "Kill": 25,
-            "Win": 50
+            "Win": 50,
+            "Top10": 30,
+            "Top5": 40
         }
     },
     "Website": {
@@ -31,50 +69,175 @@
         "clientId": "your-client-id-here",
         "clientSecret": "your-client-secret-here",
         "redirectUri": "http://127.0.0.1:${websiteport}/oauth2/callback",
-        "websiteport": 8080
+        "websiteport": 8080,
+        "bEnableRegistration": true,
+        "bRequireEmailVerification": false,
+        "bMaxAccountsPerIP": 5,
+        "bEnableProfileCustomization": true,
+        "bEnableLeaderboards": true,
+        "bEnableNewsSection": true
     },
-    "matchmakerIP": "127.0.0.1:80",
-    "gameServerIP": [
-        "127.0.0.1:7777:playlist_defaultsolo",
-        "127.0.0.1:7777:playlist_showdownalt_solo"
-    ],
-    "bEnableBattlepass": false,
-    "bBattlePassSeason": 2,
-    "bEnableOnlyOneVersionJoinable": false,
-    "bVersionJoinable": 2,
-    "bUseAutoRotate": true,
+    "matchmaker": {
+        "matchmakerIP": "127.0.0.1:80",
+        "bEnableMatchmaking": true,
+        "bMaxPlayersPerMatch": 100,
+        "bMinPlayersToStart": 2,
+        "bMatchmakingTimeout": 120,
+        "bEnableSkillBasedMatchmaking": false,
+        "bEnableFillTeams": true,
+        "bEnableCustomMatchmaking": true
+    },
+    "gameServer": {
+        "gameServerIP": [
+            "127.0.0.1:7777:playlist_defaultsolo",
+            "127.0.0.1:7777:playlist_showdownalt_solo"
+        ],
+        "bEnableServerBrowser": true,
+        "bMaxServers": 10,
+        "bAutoScaleServers": false,
+        "bServerRegion": "NA-EAST",
+        "bEnablePing": true,
+        "bMaxPing": 150
+    },
+    "gameplay": {
+        "bEnableBattlepass": false,
+        "bBattlePassSeason": 2,
+        "bDefaultVBucks": 0,
+        "bStartingLevel": 1,
+        "bMaxLevel": 100,
+        "bXPMultiplier": 1.0
+    },
+    "economy": {
+        "bEnableVBucksPurchases": true,
+        "bEnableGiftingSystem": true,
+        "bMaxGiftValue": 10000,
+        "bEnableRefunds": true,
+        "bMaxRefundTickets": 3,
+        "bEnableTradeSystem": false,
+        "bTradeFeePercentage": 5,
+        "bDailyVBucksReward": 0,
+        "bEnableBattleStars": true
+    },
+    "events": {
+        "bEnableGeodeEvent": false,
+        "geodeEventStartDate": "2020-01-01T00:00:00.000Z",
+        "bEnableCrackInTheSky": false,
+        "bEnableS4OddityPrecursor": false,
+        "bEnableS4OddityExecution": false,
+        "S4OddityEventStartDate": "2020-01-01T00:00:00.000Z",
+        "S4OddityEventsInterval": 0,
+        "bEnableS5OddityPrecursor": false,
+        "S5OddityPrecursorDate": "2020-01-01T00:00:00.000Z",
+        "bEnableS5OddityExecution": false,
+        "S5OddityExecutionDate": "2020-01-01T00:00:00.000Z",
+        "bEnableCubeLightning": false,
+        "cubeSpawnDate": "2020-01-01T00:00:00.000Z",
+        "bEnableBlockbusterRiskyEvent": false,
+        "bEnableCubeLake": false,
+        "cubeLakeDate": "2020-01-01T00:00:00.000Z",
+        "bEnableLiveEvents": true,
+        "bEventCountdownTimer": true,
+        "bRecordEvents": false
+    },
+    "shop": {
+        "bUseAutoRotate": true,
+        "bEnableAutoRotateDebugLogs": true,
+        "bRotateTime": "03:20",
+        "bDailyItemsAmount": 6,
+        "bFeaturedItemsAmount": 2,
+        "bUseCustomShopDate": false,
+        "bCustomShopDate": "",
+        "bExcludedItems": [
+            "CID_VIP_Athena_Commando_M_GalileoGondola_SG",
+            "CID_636_Athena_Commando_M_GalileoGondola_78MFZ",
+            "CID_637_Athena_Commando_M_GalileoOutrigger_7Q0YU",
+            "CID_VIP_Athena_Commando_M_GalileoFerry_SG",
+            "CID_VIP_Athena_Commando_F_GalileoRocket_SG",
+            "CID_568_Athena_Commando_M_RebirthSoldier"
+        ],
+        "bItemShopChannelId": "",
+        "bEnableDiscordWebhook": false,
+        "bEnableItemPreviews": true,
+        "bShowRarity": true,
+        "bEnableWishlist": true
+    },
+    "versions": {
+        "bEnableOnlyOneVersionJoinable": false,
+        "bVersionJoinable": 2,
+        "bChapterlimit": "1",
+        "bSeasonlimit": "10",
+        "bSupportedVersions": ["2.0", "2.5", "3.0", "3.5"],
+        "bMinimumVersion": "2.0",
+        "bMaximumVersion": "10.0"
+    },
+    "moderation": {
+        "bEnableReports": false,
+        "bReportReasons": [
+            "Cheating",
+            "Exploiting",
+            "Harassment",
+            "Inappropriate Content",
+            "Teaming",
+            "Stream Sniping",
+            "Other"
+        ],
+        "bReportChannelId": "",
+        "bAutoModeration": false,
+        "bEnableChatWarnings": true,
+        "bMaxWarnings": 3,
+        "bBanOnMaxWarnings": true,
+        "bEnableAppealSystem": true,
+        "bAppealChannelId": ""
+    },
+    "sac": {
+        "bEnableSACRewards": false,
+        "bPercentageSACRewards": 0,
+        "bEnableSACRewardsChannelId": "",
+        "bMinimumPurchaseForSAC": 100,
+        "bSACPayoutInterval": "monthly",
+        "bEnableSACLeaderboard": false
+    },
+    "quests": {
+        "bCompletedSeasonalQuests": false,
+        "bEnableDailyQuests": true,
+        "bEnableWeeklyQuests": true,
+        "bDailyQuestReward": 500,
+        "bWeeklyQuestReward": 5000,
+        "bMaxActiveDailyQuests": 3,
+        "bMaxActiveWeeklyQuests": 7,
+        "bQuestRerollEnabled": true,
+        "bQuestRerollCost": 100
+    },
+    "performance": {
+        "bEnableCache": true,
+        "bCacheDuration": 3600000,
+        "bEnableCompression": true,
+        "bMaxConcurrentConnections": 1000,
+        "bConnectionTimeout": 30000,
+        "bEnableLoadBalancing": false,
+        "bEnableMetrics": true,
+        "bMetricsInterval": 60000
+    },
+    "backup": {
+        "bEnableAutoBackup": false,
+        "bBackupInterval": "daily",
+        "bBackupTime": "04:00",
+        "bMaxBackups": 7,
+        "bBackupPath": "./backups",
+        "bBackupDatabase": true,
+        "bBackupProfiles": true,
+        "bBackupLogs": false
+    },
+    "notifications": {
+        "bEnablePushNotifications": false,
+        "bEnableEmailNotifications": false,
+        "bNotifyOnFriendOnline": true,
+        "bNotifyOnGiftReceived": true,
+        "bNotifyOnPartyInvite": true,
+        "bNotifyOnNewShop": true,
+        "bNotifyOnServerRestart": true
+    },
     "beta": false,
-    "bEnableAutoRotateDebugLogs": true,
-    "bEnableDiscordWebhook": false,
-    "bChapterlimit": "1",
-    "bSeasonlimit": "10",
-    "bRotateTime": "03:20",
-    "bExcludedItems": [
-        "CID_VIP_Athena_Commando_M_GalileoGondola_SG",
-        "CID_636_Athena_Commando_M_GalileoGondola_78MFZ",
-        "CID_637_Athena_Commando_M_GalileoOutrigger_7Q0YU",
-        "CID_VIP_Athena_Commando_M_GalileoFerry_SG",
-        "CID_VIP_Athena_Commando_F_GalileoRocket_SG",
-        "CID_568_Athena_Commando_M_RebirthSoldier"
-    ],
-    "bItemShopChannelId": "",
-    "bDailyItemsAmount": 6,
-    "bFeaturedItemsAmount": 2,
-    "bUseCustomShopDate": false,
-    "bCustomShopDate": "",
-    "bEnableReports": false,
-    "bReportReasons": [
-        "Cheating",
-        "Exploiting",
-        "Harassment",
-        "Inappropriate Content",
-        "Other"
-    ],
-    "bReportChannelId": "",
-    "bCompletedSeasonalQuests": false,
-    "bEnableSACRewards": false,
-    "bPercentageSACRewards": 0,
-    "bEnableSACRewardsChannelId": "",
     "bEnableAutoBackendRestart": false,
     "bRestartTime": "",
     "bEnableAutoBackendRestartDebugLogs": false,
@@ -83,25 +246,14 @@
     "bEnableHTTPS": false,
     "ssl": {
         "cert": "./ssl/example_certificate.crt",
-        "key": "./ssl/example_private.key"
+        "key": "./ssl/example_private.key",
+        "ca": "./ssl/example_ca.crt"
     },
-    "bEnableCalderaService": false,
-    "bGameVersion": "27.11",
-    "bCalderaServicePort": 5000,
-    "bEnableGeodeEvent": false,
-    "geodeEventStartDate": "2020-01-01T00:00:00.000Z",
-    "bEnableCrackInTheSky": false,
-    "bEnableS4OddityPrecursor": false,
-    "bEnableS4OddityExecution": false,
-    "S4OddityEventStartDate": "2020-01-01T00:00:00.000Z",
-    "S4OddityEventsInterval": 0,
-    "bEnableS5OddityPrecursor": false,
-    "S5OddityPrecursorDate": "2020-01-01T00:00:00.000Z",
-    "bEnableS5OddityExecution": false,
-    "S5OddityExecutionDate": "2020-01-01T00:00:00.000Z",
-    "bEnableCubeLightning": false,
-    "cubeSpawnDate": "2020-01-01T00:00:00.000Z",
-    "bEnableBlockbusterRiskyEvent": false,
-    "bEnableCubeLake": false,
-    "cubeLakeDate": "2020-01-01T00:00:00.000Z"
+    "caldera": {
+        "bEnableCalderaService": false,
+        "bGameVersion": "27.11",
+        "bCalderaServicePort": 5000,
+        "bEnableAntiCheat": true,
+        "bStrictMode": false
+    }
 }

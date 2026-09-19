@@ -40,6 +40,7 @@ if (!fs.existsSync("./ClientSettings")) fs.mkdirSync("./ClientSettings");
 const tui = require("./structs/tui.js");
 
 tui.init();
+tui.showWelcomeMessage();
 
 function updateTuiStats() {
     tui.updateStats({
@@ -126,13 +127,13 @@ fs.readdirSync("./Api").forEach(fileName => {
     try {
         app.use(require(`./Api/${fileName}`));
     } catch (err) {
-        log.error(`Reload API Error: Failed to load ${fileName}`)
+        log.error(`Midnight API Error: Failed to load ${fileName}`)
     }
 });
 
 app.get("/unknown", (req, res) => {
     log.debug('GET /unknown endpoint called');
-    res.json({ msg: "Reload Backend - Made by Burlone" });
+    res.json({ msg: "Midnight Backend - made by 19.10 and Aqua" });
 });
 
 let server;
