@@ -1,0 +1,51 @@
+{
+  "//": "BR Item Shop Config",
+  "daily1": {
+    "itemGrants": [
+      "AthenaCharacter:CID_139_Athena_Commando_M_FighterPilot"
+    ],
+    "price": 1500
+  },
+  "daily2": {
+    "itemGrants": [
+      "AthenaCharacter:CID_318_Athena_Commando_M_Demon"
+    ],
+    "price": 1500
+  },
+  "daily3": {
+    "itemGrants": [
+      "AthenaDance:EID_DustingHands"
+    ],
+    "price": 200
+  },
+  "daily4": {
+    "itemGrants": [
+      "AthenaBackpack:BID_120_Werewolf"
+    ],
+    "price": 2000
+  },
+  "daily5": {
+    "itemGrants": [
+      "AthenaGlider:Glider_ID_115_SnowNinja"
+    ],
+    "price": 800
+  },
+  "daily6": {
+    "itemGrants": [
+      "AthenaPickaxe:Pickaxe_ID_174_LuckyRider"
+    ],
+    "price": 800
+  },
+  "featured1": {
+    "itemGrants": [
+      "AthenaCharacter:CID_301_Athena_Commando_M_Rhino"
+    ],
+    "price": 1500
+  },
+  "featured2": {
+    "itemGrants": [
+      "AthenaCharacter:CID_378_Athena_Commando_M_FurnaceFace"
+    ],
+    "price": 2000
+  }
+}

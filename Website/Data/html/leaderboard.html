@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reload Leaderboard</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" href="/Images/reload.ico" type="image/x-icon" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --primary: #00bfff;
+        --primary-hover: #0099cc;
+        --bg-dark: #0c0c14;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --glass-border: rgba(255, 255, 255, 0.1);
+        --text-main: #ffffff;
+        --text-dim: #a0a0a0;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: var(--bg-dark);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 100vh;
+        padding: 40px 20px;
+        box-sizing: border-box;
+        background: radial-gradient(circle at top right, #1a1a2e, #0c0c14);
+      }
+
+      .leaderboard-container {
+        width: 100%;
+        max-width: 1000px;
+        background: var(--card-bg);
+        backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        background: linear-gradient(to right, #ffffff, #00bfff);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-align: center;
+        letter-spacing: -1.5px;
+      }
+
+      .subtitle {
+        color: var(--text-dim);
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+      }
+
+      .filters {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 30px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .filter-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .filter-group label {
+        font-size: 0.8rem;
+        color: var(--text-dim);
+        font-weight: 600;
+        text-transform: uppercase;
+      }
+
+      select {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid var(--glass-border);
+        color: white;
+        padding: 10px 15px;
+        border-radius: 10px;
+        outline: none;
+        cursor: pointer;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      select:focus {
+        border-color: var(--primary);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      option {
+        background-color: #1a1a2e;
+        color: white;
+      }
+
+      .leaderboard-table-container {
+        overflow-x: auto;
+        border-radius: 16px;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+      }
+
+      th {
+        padding: 20px;
+        color: var(--text-dim);
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-bottom: 1px solid var(--glass-border);
+      }
+
+      td {
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        font-weight: 500;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      tr:hover td {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .rank {
+        font-weight: 800;
+        width: 60px;
+      }
+
+      .rank-1 {
+        color: #ffd700;
+        font-size: 1.2rem;
+      }
+      .rank-2 {
+        color: #c0c0c0;
+        font-size: 1.1rem;
+      }
+      .rank-3 {
+        color: #cd7f32;
+        font-size: 1.05rem;
+      }
+
+      .player-name {
+        font-weight: 700;
+        color: var(--text-main);
+      }
+
+      .stat-value {
+        font-weight: 700;
+        color: var(--primary);
+      }
+
+      .loading-spinner {
+        display: flex;
+        justify-content: center;
+        padding: 60px;
+      }
+
+      .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(255, 255, 255, 0.1);
+        border-top: 4px solid var(--primary);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      footer {
+        margin-top: 40px;
+        color: var(--text-dim);
+      }
+
+      @media (max-width: 600px) {
+        .leaderboard-container {
+          padding: 20px;
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        .filters {
+          flex-direction: column;
+          align-items: stretch;
+        }
+      }
+    </style>
+  </head>
+  <body class="dark-theme">
+    <div class="leaderboard-container">
+      <h1>GLOBAL LEADERBOARD</h1>
+      <p class="subtitle">Real-time statistics for the top players of Reload</p>
+
+      <div class="filters">
+        <div class="filter-group">
+          <label>Playlist</label>
+          <select id="playlistFilter" onchange="fetchLeaderboard()">
+            <option value="solo">Solo</option>
+            <option value="duo">Duo</option>
+            <option value="squad">Squad</option>
+            <option value="ltm">LTM</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Stat Type</label>
+          <select id="statTypeFilter" onchange="fetchLeaderboard()">
+            <option value="placetop1">Wins</option>
+            <option value="kills">Kills</option>
+            <option value="matchesplayed">Matches</option>
+            <option value="score">Score</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Region</label>
+          <select id="regionFilter" onchange="fetchLeaderboard()">
+            <option value="Global">Global</option>
+            <option value="EU">Europe</option>
+            <option value="NA">North America</option>
+            <option value="ASIA">Asia</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>Search Player</label>
+          <div style="display: flex; gap: 10px">
+            <input
+              type="text"
+              id="playerSearch"
+              placeholder="Username..."
+              style="
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px solid var(--glass-border);
+                color: white;
+                padding: 10px 15px;
+                border-radius: 10px;
+                outline: none;
+                width: 150px;
+              "
+            />
+            <button
+              onclick="fetchLeaderboard()"
+              style="
+                background: var(--primary);
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: 600;
+              "
+            >
+              Search
+            </button>
+            <button
+              onclick="
+                document.getElementById('playerSearch').value = '';
+                fetchLeaderboard();
+              "
+              style="
+                background: rgba(255, 255, 255, 0.1);
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: 600;
+              "
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="leaderboard-table-container">
+        <table id="leaderboardTable">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>Player</th>
+              <th id="statHeader">Wins</th>
+              <th>Total Kills</th>
+              <th>Matches</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody"></tbody>
+        </table>
+        <div id="loading" class="loading-spinner">
+          <div class="spinner"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      async function fetchLeaderboard() {
+        const playlist = document.getElementById("playlistFilter").value;
+        const type = document.getElementById("statTypeFilter").value;
+        const region = document.getElementById("regionFilter").value;
+        const search = document.getElementById("playerSearch").value;
+        const statHeader = document.getElementById("statHeader");
+
+        const typeLabels = {
+          placetop1: "Wins",
+          kills: "Kills",
+          matchesplayed: "Matches",
+          score: "Score",
+        };
+        statHeader.textContent = typeLabels[type];
+
+        const body = document.getElementById("leaderboardBody");
+        const loading = document.getElementById("loading");
+
+        body.style.display = "none";
+        loading.style.display = "flex";
+
+        try {
+          const response = await fetch(
+            `/api/website/leaderboard?playlist=${playlist}&type=${type}&region=${region}&search=${encodeURIComponent(search)}`,
+          );
+          const data = await response.json();
+
+          body.innerHTML = "";
+
+          if (data.length === 0) {
+            body.innerHTML =
+              '<tr><td colspan="5" style="text-align:center; padding: 40px; color: #a0a0a0;">No data found for this selection</td></tr>';
+          } else {
+            data.forEach((entry) => {
+              const tr = document.createElement("tr");
+              const rankClass = entry.rank <= 3 ? `rank-${entry.rank}` : "";
+
+              tr.innerHTML = `
+                            <td class="rank ${rankClass}">#${entry.rank}</td>
+                            <td class="player-name">${entry.username}</td>
+                            <td class="stat-value">${entry.value.toLocaleString()}</td>
+                            <td>${entry.kills.toLocaleString()}</td>
+                            <td>${entry.matches.toLocaleString()}</td>
+                        `;
+              body.appendChild(tr);
+            });
+          }
+        } catch (error) {
+          console.error("Error fetching leaderboard:", error);
+          body.innerHTML =
+            '<tr><td colspan="5" style="text-align:center; padding: 40px; color: #ff4c4c;">Failed to load leaderboard data</td></tr>';
+        } finally {
+          loading.style.display = "none";
+          body.style.display = "table-row-group";
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", fetchLeaderboard);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,108 @@
+{
+    "moderators": [
+        ""
+    ],
+    "maintenanceMode": false,
+    "discord": {
+        "bUseDiscordBot": true,
+        "bot_token": "PUT_TOKEN_HERE",
+        "bEnableInGamePlayerCount": true
+    },
+    "mongodb": {
+        "database": "mongodb://127.0.0.1/MidnightServer"
+    },
+    "chat": {
+        "EnableGlobalChat": false
+    },
+    "bEnableDebugLogs": true,
+    "bEnableDebugLogsToFile": false,
+    "bEnableFormattedLogs": true,
+    "bEnableRebootUser": true,
+    "bEnableCrossBans": false,
+    "port": 3551,
+    "Api": {
+        "bApiKey": "ur-api-key",
+        "reasons": {
+            "Kill": 25,
+            "Win": 50
+        }
+    },
+    "Website": {
+        "bUseWebsite": true,
+        "clientId": "your-client-id-here",
+        "clientSecret": "your-client-secret-here",
+        "redirectUri": "http://127.0.0.1:${websiteport}/oauth2/callback",
+        "websiteport": 8080
+    },
+    "matchmakerIP": "127.0.0.1:80",
+    "gameServerIP": [
+        "127.0.0.1:7777:playlist_defaultsolo",
+        "127.0.0.1:7777:playlist_showdownalt_solo"
+    ],
+    "bEnableBattlepass": false,
+    "bBattlePassSeason": 2,
+    "bEnableOnlyOneVersionJoinable": false,
+    "bVersionJoinable": 2,
+    "bUseAutoRotate": true,
+    "beta": false,
+    "bEnableAutoRotateDebugLogs": true,
+    "bEnableDiscordWebhook": false,
+    "bChapterlimit": "1",
+    "bSeasonlimit": "10",
+    "bRotateTime": "03:20",
+    "bExcludedItems": [
+        "CID_VIP_Athena_Commando_M_GalileoGondola_SG",
+        "CID_636_Athena_Commando_M_GalileoGondola_78MFZ",
+        "CID_637_Athena_Commando_M_GalileoOutrigger_7Q0YU",
+        "CID_VIP_Athena_Commando_M_GalileoFerry_SG",
+        "CID_VIP_Athena_Commando_F_GalileoRocket_SG",
+        "CID_568_Athena_Commando_M_RebirthSoldier"
+    ],
+    "bItemShopChannelId": "",
+    "bDailyItemsAmount": 6,
+    "bFeaturedItemsAmount": 2,
+    "bUseCustomShopDate": false,
+    "bCustomShopDate": "",
+    "bEnableReports": false,
+    "bReportReasons": [
+        "Cheating",
+        "Exploiting",
+        "Harassment",
+        "Inappropriate Content",
+        "Other"
+    ],
+    "bReportChannelId": "",
+    "bCompletedSeasonalQuests": false,
+    "bEnableSACRewards": false,
+    "bPercentageSACRewards": 0,
+    "bEnableSACRewardsChannelId": "",
+    "bEnableAutoBackendRestart": false,
+    "bRestartTime": "",
+    "bEnableAutoBackendRestartDebugLogs": false,
+    "bEnableBackendStatus": false,
+    "bBackendStatusChannelId": "",
+    "bEnableHTTPS": false,
+    "ssl": {
+        "cert": "./ssl/example_certificate.crt",
+        "key": "./ssl/example_private.key"
+    },
+    "bEnableCalderaService": false,
+    "bGameVersion": "27.11",
+    "bCalderaServicePort": 5000,
+    "bEnableGeodeEvent": false,
+    "geodeEventStartDate": "2020-01-01T00:00:00.000Z",
+    "bEnableCrackInTheSky": false,
+    "bEnableS4OddityPrecursor": false,
+    "bEnableS4OddityExecution": false,
+    "S4OddityEventStartDate": "2020-01-01T00:00:00.000Z",
+    "S4OddityEventsInterval": 0,
+    "bEnableS5OddityPrecursor": false,
+    "S5OddityPrecursorDate": "2020-01-01T00:00:00.000Z",
+    "bEnableS5OddityExecution": false,
+    "S5OddityExecutionDate": "2020-01-01T00:00:00.000Z",
+    "bEnableCubeLightning": false,
+    "cubeSpawnDate": "2020-01-01T00:00:00.000Z",
+    "bEnableBlockbusterRiskyEvent": false,
+    "bEnableCubeLake": false,
+    "cubeLakeDate": "2020-01-01T00:00:00.000Z"
+}
