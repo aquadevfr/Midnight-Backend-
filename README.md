@@ -2,6 +2,8 @@
 
 **Midnight Backend is a Modified Backend from better reload that gives more features and a partnered launcher**
 
+https://i.imgur.com/75wVsGW.png
+
 My Discord Server 
 
 https://discord.gg/WDkruep4d
