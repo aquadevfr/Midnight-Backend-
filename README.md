@@ -30,5 +30,15 @@ Backend Features:
 - connection to Launcher is way faster now 
 
 
+  # TO DO-
+
+  - faster username respond time 
+  - xp system
+  - more battel passes
+  - higher upload bit
+
+  MORE COMING SOON
+
+
 
 
